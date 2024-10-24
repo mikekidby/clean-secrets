@@ -7,7 +7,9 @@ GITHUB_USER_NAME="username"
 
 FINE_GRAIN_ACCESS_TOKEN="finegrainaccesstoken"
 
-REPO="program-service-wp"
+REPO="repo-name"
+
+COMPANY="company or username"
 
 # Check for the dry-run flag
 if [[ $1 == "--dry-run" ]]; then
@@ -18,9 +20,9 @@ echo "Starting processing of repositories..."
 
 # Clone the repo as a bare mirror
 if [ "$DRY_RUN" = true ]; then
-  echo "Dry run: git clone --mirror https://$GITHUB_USER_NAME:$FINE_GRAIN_ACCESS_TOKEN@github.com/risepoint/$REPO.git"
+  echo "Dry run: git clone --mirror https://$GITHUB_USER_NAME:$FINE_GRAIN_ACCESS_TOKEN@github.com/$COMPANY/$REPO.git"
 else
-  git clone --mirror https://$GITHUB_USER_NAME:$FINE_GRAIN_ACCESS_TOKEN@github.com/risepoint/$REPO.git
+  git clone --mirror https://$GITHUB_USER_NAME:$FINE_GRAIN_ACCESS_TOKEN@github.com/$COMPANY/$REPO.git
 fi
 
 # Run BFG to delete files or sensitive data patterns
